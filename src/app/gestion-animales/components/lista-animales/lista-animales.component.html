@@ -1,0 +1,26 @@
+<ul>
+  <li *ngFor="let animal of animales$ | async">
+    {{ animal.nombre }}
+  </li>
+</ul>
+
+<button (click)="nuevoAnimal()">Alta (hardcoded)</button>
+
+<form (submit)="addAnimal()">
+  <fieldset class="form-group">
+    <legend>Agregar Animal</legend>
+    <div class="form-group">
+        <label for="nombre">Nombre:</label>
+        <input id="nombre" class="form-control" type="text" name="nombre" [(ngModel)]="newAnimal.nombre">
+    </div>
+    <div class="form-group">
+        <label for="bio">Bio:</label>
+        <input id="bio" class="form-control" type="text" name="bio" [(ngModel)]="newAnimal.bio">
+    </div>
+    <div class="form-group">
+        <label for="imagen">Imagen:</label>
+        <input id="imagen" class="form-control" type="text" name="imagen" [(ngModel)]="newAnimal.imagen">
+    </div>
+    <button type="submit" class="btn btn-primary float-right">Agregar</button>
+  </fieldset>
+</form>
