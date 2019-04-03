@@ -12,7 +12,7 @@ import { GestionAnimalesModule } from './gestion-animales/gestion-animales.modul
   imports: [
     BrowserModule,
     AppRoutingModule,
-    GestionAnimalesModule
+    GestionAnimalesModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -3,10 +3,14 @@ import { CommonModule } from '@angular/common';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { GestionAnimalesRoutingModule } from './gestion-animales-routing.module';
 import { ListaAnimalesComponent } from './components/lista-animales/lista-animales.component';
 import { environment } from 'src/environments/environment';
+
+//Shared
+import { MaterialModule } from '../material/material.module';
 
 @NgModule({
   declarations: [ListaAnimalesComponent],
@@ -16,6 +20,8 @@ import { environment } from 'src/environments/environment';
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
     FormsModule,
+    BrowserAnimationsModule,
+    MaterialModule
   ],
   exports: [ListaAnimalesComponent]
 })

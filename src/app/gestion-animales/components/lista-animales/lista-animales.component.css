@@ -1,0 +1,22 @@
+mat-form-field {
+  margin-right: 50px;
+}
+
+.headers-align .mat-expansion-panel-header-description {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.headers-align .mat-expansion-panel-header-title,
+.headers-align .mat-expansion-panel-header-description {
+  flex-basis: 0;
+}
+
+table {
+  width: 100%;
+}
+
+th.mat-header-cell {
+  text-align: center;
+}
+
