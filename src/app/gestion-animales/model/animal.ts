@@ -40,7 +40,7 @@ export class Animal {
     }
 
     //métodos
-    constructor(nombre:string, bio:string, imagen:string, id:string) {
+    constructor(id:string, nombre:string, bio:string, imagen:string) {
         this._id = id;
         this._nombre = nombre;
         this._bio = bio;

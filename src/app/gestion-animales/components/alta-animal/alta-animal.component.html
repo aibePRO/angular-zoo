@@ -1,0 +1,19 @@
+<form [formGroup]="animalForm" (ngSubmit)="enviarDatos()" [hidden]=todook>
+    <input type="text" formControlName="id">
+    <span *ngIf="animalForm.controls.id.invalid && animalForm.controls.id.touched">El campo es obligatorio</span>
+    <input type="text" formControlName="nombre">
+    <span *ngIf="animalForm.controls.nombre.invalid && animalForm.controls.nombre.touched">El campo es obligatorio</span>
+    <input type="text" formControlName="bio">
+    <span *ngIf="animalForm.controls.bio.invalid && animalForm.controls.bio.touched">El campo es obligatorio</span>
+    <input type="text" formControlName="imagen">
+    <input type="submit" value="Enviar" [disabled]="animalForm.invalid">
+</form>
+<div *ngIf="todook">
+  <p>
+    Animal se ha agregado satisfactoriamente.
+  </p>
+  <button mat-stroked-button [routerLink]="['/']">
+    <mat-icon aria-hidden="false">arrow_back_ios</mat-icon>
+    Volver
+  </button>
+</div>

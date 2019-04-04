@@ -37,12 +37,18 @@ export class ListaAnimalesComponent implements OnInit {
   }
 
   nuevoAnimal() {
-    const data = new Animal("Avestruz", "Teresa", "Mas patatas", "avestruz.png");
+    const data = {
+      "id": "Avestruz",
+      "nombre": "Teresa",
+      "bio": "Mas patatas",
+      "imagen": "avestruz.png"
+    };
     this.animalesSrv.nuevoAnimal(data);
   }
 
   addAnimal(f: NgForm) {
-    this.animalesSrv.nuevoAnimal(this.newAnimal);
+    const data = new Animal(this.newAnimal.id, this.newAnimal.nombre, this.newAnimal.bio, this.newAnimal.imagen);
+    this.animalesSrv.nuevoAnimal(data);
     f.reset();
     this.prevStep();
     return false;

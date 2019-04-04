@@ -1,0 +1,8 @@
+<div *ngIf="animal$ | async as animal">
+  <h2>{{ animal.nombre }}</h2>
+</div>
+
+<button mat-stroked-button [routerLink]="['/']">
+  <mat-icon aria-hidden="false">arrow_back_ios</mat-icon>
+  Volver a listado
+</button>

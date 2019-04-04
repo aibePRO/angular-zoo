@@ -3,41 +3,42 @@
     <mat-expansion-panel-header>
       <mat-panel-title>Listado de Animales</mat-panel-title>
       <mat-panel-description>
-        Clic para extender
-        <mat-icon>account_circle</mat-icon>
+        <button [routerLink]="['/agregar']" mat-icon-button>Agregar animal <mat-icon>add_circle</mat-icon></button>
+        <mat-icon>list</mat-icon>
       </mat-panel-description>
     </mat-expansion-panel-header>
     <table align="center" mat-table [dataSource]="animales$" class="mat-elevation-z8">
 
       <ng-container matColumnDef="id">
         <th mat-header-cell *matHeaderCellDef> Tipo </th>
-        <td mat-cell *matCellDef="let animal"> {{animal.id}} </td>
+        <td mat-cell *matCellDef="let animal">
+          <a [routerLink]="['/animales', animal.payload.doc.id]">
+            {{animal.payload.doc.id}}
+          </a>
+        </td>
       </ng-container>
 
       <ng-container matColumnDef="nombre">
         <th mat-header-cell *matHeaderCellDef> Nombre </th>
-        <td mat-cell *matCellDef="let animal"> {{animal.nombre}} </td>
+        <td mat-cell *matCellDef="let animal"> {{animal.payload.doc.data().nombre}} </td>
       </ng-container>
 
       <ng-container matColumnDef="bio">
         <th mat-header-cell *matHeaderCellDef> Bio </th>
-        <td mat-cell *matCellDef="let animal"> {{animal.bio}} </td>
+        <td mat-cell *matCellDef="let animal"> {{animal.payload.doc.data().bio}} </td>
       </ng-container>
 
       <ng-container matColumnDef="imagen">
         <th mat-header-cell *matHeaderCellDef> Imagen </th>
-        <td mat-cell *matCellDef="let animal"> {{animal.imagen}} </td>
+        <td mat-cell *matCellDef="let animal"> {{animal.payload.doc.data().imagen}} </td>
       </ng-container>
 
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
   </mat-expansion-panel>
-
-  <button (click)="nuevoAnimal()" mat-raised-button>Alta (hardcoded)</button>
-
   <form #f="ngForm" (submit)="addAnimal(f)">
-    <mat-expansion-panel>
+    <mat-expansion-panel [expanded]="step === 1" (opened)="setStep(1)" hideToggle>
         <mat-expansion-panel-header>
           <mat-panel-title>Agregar Animal</mat-panel-title>
           <mat-panel-description>
@@ -68,5 +69,6 @@
     </mat-expansion-panel>
   </form>
 </mat-accordion>
-
+<br /><br />
+<button (click)="nuevoAnimal()" mat-raised-button>Alta (hardcoded)</button>
 
